@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from conftest import driver
+from conftest import driver, register_user
 from conftest import user_data
 
 
@@ -14,8 +14,4 @@ def test_2():
 #Navigating to the Registration page and registering as a user
 def test_3():
     driver.find_element(By.XPATH,"//a[normalize-space()='Register']").click()
-    driver.find_element(By.ID,"name").send_keys(user_data["name"])
-
-
-
-
+    register_user(user_data)
