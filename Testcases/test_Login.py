@@ -25,6 +25,19 @@ def test_log2(test_nav):
     driver.find_element(By.ID, "email").send_keys("incorrect@example.com")
     driver.find_element(By.ID, "password").send_keys("incorrect_password")
     driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
+    assert "You are logged in!" not in driver.page_source
+
+#Blank email and password is provided
+def test_log3(test_nav):
+    # Navigating to the homepage
+    driver.find_element(By.XPATH, "//a[contains(text(),'home')]").click()
+
+    # Executing the test with incorrect credentials
+    driver.find_element(By.ID, "email").send_keys()
+    driver.find_element(By.ID, "password").send_keys()
+    driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
+    assert "Please fill out the form" not in driver.page_source
+
 
 
 

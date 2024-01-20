@@ -1,5 +1,3 @@
-
-
 from selenium.webdriver.common.by import By
 from conftest import driver, register_user
 from conftest import user_data
