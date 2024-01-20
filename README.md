@@ -1,6 +1,6 @@
 # ✈️ Travel Website Automation Script 🤖
 
-This repository contains an automation script designed for interacting with the travel website [BlazeDemo](https://blazedemo.com/). The script is created using Selenium, Python, and Pytest. This s
+This repository contains an automation script designed for interacting with the travel website [BlazeDemo](https://blazedemo.com/). The script is created using Selenium, Python, and Pytest.
 
 ## Setup Instructions 🚀
 
