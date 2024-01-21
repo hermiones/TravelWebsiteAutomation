@@ -23,7 +23,7 @@ def test_log2(test_nav):
 
     # Executing the test with incorrect credentials
     driver.find_element(By.ID, "email").send_keys("incorrect@example.com")
-    driver.find_element(By.ID, "password").send_keys("incorrect_password")
+    driver.find_element(By.ID, "password").send_keys("incorrect_passwyyord")
     driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
     assert "You are logged in!" not in driver.page_source
 
