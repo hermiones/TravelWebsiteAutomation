@@ -27,8 +27,8 @@ To address this task, the following steps were taken:
 4. **Test Case Coverage 🧪:**
    - Test cases were developed to cover various scenarios related to the login functionality of the BlazeDemo website.
 
-5. **Documentation and Licensing 📝:**
-   - Clear documentation was added in the README to guide users on how to use the script, contribute to the project, and understand the licensing terms (MIT License).
+5. **Documentation  📝:**
+   - Clear documentation was added in the README to guide users on how to use the script, and contribute to the project.
 
 ### Result 🌟
 
@@ -71,6 +71,11 @@ To run the automation script successfully, follow the setup instructions below:
      ```bash
      python travel_automation_script.py
      ```
+8. **Generate the Allure Reports of the tests:**
+9. - execute the tests using this command and generate the report
+   - ```pytest --alluredir=./allure-results```
+   - ```allure  generate './allure-results' --clean  ``` 
+   - ``` allure open './allure-report' ```
 
 ## Software Specifications 🛠️
 
