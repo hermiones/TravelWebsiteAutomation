@@ -78,7 +78,7 @@ To run the automation script successfully, follow the setup instructions below:
 9. - execute the tests using this command and generate the report
    - ```pytest --alluredir=./allure-results```
    - ```allure  generate './allure-results' --clean  ``` 
-   - ``` allure open './allure-report' ```
+   - ``` allure open './allure-report'   ```
 
 ## Software Specifications 🛠️
 
