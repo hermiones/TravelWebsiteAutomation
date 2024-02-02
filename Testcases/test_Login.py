@@ -36,7 +36,7 @@ def test_log3(test_nav):
     driver.find_element(By.ID, "email").send_keys()
     driver.find_element(By.ID, "password").send_keys()
     driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
-    assert "Please fill out the field" not in driver.page_source
+    assert "Please fill out the field"  in driver.page_source
 
 
 
