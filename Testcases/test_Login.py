@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Ensure you have your fixture for the driver and user_data available
 from conftest import driver, user_data
@@ -36,7 +38,31 @@ def test_log3(test_nav):
     driver.find_element(By.ID, "email").send_keys()
     driver.find_element(By.ID, "password").send_keys()
     driver.find_element(By.XPATH, "//button[contains(text(),'Login')]").click()
-    assert "Please fill out the field"  in driver.page_source
+    # Wait for the error message to appear
+    error_message = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, "error-message"))
+    )
+
+    # Capture the error message text using JavaScript
+    error_message_text = driver.execute_script("return arguments[0].textContent;", error_message)
+
+    # Assert the error message
+    assert "Please fill out the field" in error_message_text, "Error message not found on the page"
+
+# Test forgot password
+
+def test_log4(test_nav):
+
+        # Navigating to the homepage
+        driver.find_element(By.XPATH, "//a[contains(text(),'home')]").click()
+
+        # Clicking on the "Forgot Your Password" link
+        driver.find_element(By.PARTIAL_LINK_TEXT, "Forgot Your Passwor").click()
+
+
+        # Asserting that the "Reset Password" text is present in the page source
+        assert "Reset Password" in driver.page_source
+
 
 
 
