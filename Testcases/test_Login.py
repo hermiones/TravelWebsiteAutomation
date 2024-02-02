@@ -58,9 +58,6 @@ def test_log4(test_nav):
 
         # Clicking on the "Forgot Your Password" link
         driver.find_element(By.PARTIAL_LINK_TEXT, "Forgot Your Passwor").click()
-
-
-        # Asserting that the "Reset Password" text is present in the page source
         assert "Reset Password" in driver.page_source
 
 
