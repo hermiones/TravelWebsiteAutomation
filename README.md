@@ -29,6 +29,9 @@ To address this task, the following steps were taken:
 
 5. **Documentation  📝:**
    - Clear documentation was added in the README to guide users on how to use the script, and contribute to the project.
+   - Here Sharing the Diagram of the framework architechture
+   - ![image](https://github.com/hermiones/TravelWebsiteAutomation/assets/66077382/11941aee-90f0-4cc5-85e6-787408758db3)
+
 
 ### Result 🌟
 
@@ -75,7 +78,7 @@ To run the automation script successfully, follow the setup instructions below:
 9. - execute the tests using this command and generate the report
    - ```pytest --alluredir=./allure-results```
    - ```allure  generate './allure-results' --clean  ``` 
-   - ``` allure open './allure-report' ```
+   - ``` allure open './allure-report'   ```
 
 ## Software Specifications 🛠️
 
