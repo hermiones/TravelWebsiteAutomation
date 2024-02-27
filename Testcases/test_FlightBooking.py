@@ -23,8 +23,6 @@ def test_FB1(test_nav):
 
 
 
-#book a flight from Paris to Paris
-def test_FB2(test_nav):
-    dropdown = Select(driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/select[1]"))
-    dropdown.select_by_visible_text("Boston")
+
+
 
