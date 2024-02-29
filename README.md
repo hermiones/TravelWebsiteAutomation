@@ -75,7 +75,9 @@ To run the automation script successfully, follow the setup instructions below:
      python travel_automation_script.py
      ```
 8. **Generate the Allure Reports of the tests:**
-9. - execute the tests using this command and generate the report
+   <img width="932" alt="image" src="https://github.com/hermiones/TravelWebsiteAutomation/assets/66077382/9d2d83d0-531b-464f-8fd6-9265a7075566">
+
+   - execute the tests using this command and generate the report
    - ```pytest --alluredir=./allure-results```
    - ```allure  generate './allure-results' --clean  ``` 
    - ``` allure open './allure-report'   ```
