@@ -76,6 +76,8 @@ To run the automation script successfully, follow the setup instructions below:
      ```
 8. **Generate the Allure Reports of the tests:**
    <img width="932" alt="image" src="https://github.com/hermiones/TravelWebsiteAutomation/assets/66077382/9d2d83d0-531b-464f-8fd6-9265a7075566">
+   <img width="934" alt="image" src="https://github.com/hermiones/TravelWebsiteAutomation/assets/66077382/a9f0c3da-cb56-4d22-a4d2-af523e79d3ac">
+
 
    - execute the tests using this command and generate the report
    - ```pytest --alluredir=./allure-results```
