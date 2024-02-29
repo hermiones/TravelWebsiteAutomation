@@ -27,3 +27,6 @@ def register_user(user_data):
     for field_name, field_value in user_data.items():
         driver.find_element(By.ID, field_name).send_keys(field_value)
 
+#Path to save the screenshots
+Path_Screenshot = "C:\\Users\\s_mohanty\\PycharmProjects\\TravelWebsiteAutomation\\TravelWebsiteAutomation\\Testcases\\Screenshots\\"
+

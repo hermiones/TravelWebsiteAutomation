@@ -1,4 +1,6 @@
 from selenium.webdriver.support.select import Select
+
+from conftest import Path_Screenshot
 from conftest import *
 
 
@@ -24,11 +26,12 @@ def test_FB3():
 
 def test_FB4():
     driver.find_element(By.ID,"inputName").send_keys(user_data["name"])
-#will skip the part where will be adding user details and card details for now
+    driver.find_element(By.ID,"address").send_keys("INDIA")
+    driver.find_element(By.ID,"city").send_keys("ABC")
+
     driver.find_element(By.XPATH,"/html[1]/body[1]/div[2]/form[1]/div[11]/div[1]/input[1]").click()
-
-
-
 #Taking screenshot of the final booking
 def test_FB5():
-    driver.save_screenshot("C:\\Users\\s_mohanty\\PycharmProjects\\TravelWebsiteAutomation\\TravelWebsiteAutomation\\Testcases\\Screenshots\\ticket.png")
+    driver.save_screenshot(Path_Screenshot+"ticket.png")
+
+
