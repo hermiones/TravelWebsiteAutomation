@@ -1,17 +1,30 @@
-# Navigate to the project directory
-cd TravelWebsiteAutomation
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Download and configure Selenium WebDriver
-# Make sure to replace '/path/to/chromedriver' with the actual path to your WebDriver executable
-#echo "webdriver_path = '/path/to/chromedriver'" > config.py
-
-# Run the automation script
-python travel_automation_script.py
-
-# Generate Allure Reports
-pytest --alluredir=./allure-results
-allure generate ./allure-results --clean
-allure open ./allure-report
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from repository
+                git 'https://github.com/hermiones/TravelWebsiteAutomation.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                // Install Python dependencies
+                bat 'pip install -r requirements.txt'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                // Run automation script and add results to allure folder
+                bat 'pytest --alluredir=./allure-results -n 2 '
+            }
+        }
+        stage('Generate Allure Reports') {
+            steps {
+                // Generate Allure reports
+                bat 'allure generate ./allure-results --clean'
+                bat 'allure open './allure-report'
+            }
+        }
+    }
+}
