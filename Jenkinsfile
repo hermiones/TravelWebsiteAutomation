@@ -10,7 +10,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Python dependencies
-                bat 'pip install -r requirements.txt'
+                bat 'pip install -r requirement.txt'
             }
         }
         stage('Run Tests') {
