@@ -16,14 +16,14 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run automation script and add results to allure folder
-                bat 'pytest --alluredir=./allure-results -n 2 '
+                bat 'pytest --alluredir=./allure-results -n 2'
             }
         }
         stage('Generate Allure Reports') {
             steps {
                 // Generate Allure reports
                 bat 'allure generate ./allure-results --clean'
-                bat 'allure open './allure-report'
+                bat 'allure open ./allure-report'
             }
         }
     }
