@@ -17,13 +17,13 @@ pipeline {
         
         stage('Run Tests') {
             steps {
-                bat 'pytest -q --alluredir=./allure-results'
+                bat 'pytest -n 5 --html=report.html'
             }
         }
         
-        stage('Generate Allure Reports') {
+        stage('Generate Reports') {
             steps {
-                bat 'allure generate ./allure-results --clean'
+                bat 'start report.html'
             }
         }
     }
@@ -35,7 +35,7 @@ pipeline {
                 body: 'Please find the test report attached.',
                 to: 'Sudiptadiya20@gmail.com',
                 attachLog: true,
-                attachmentsPattern: 'allure-report/**'
+                attachmentsPattern: 'report.html'
             )
         }
     }
