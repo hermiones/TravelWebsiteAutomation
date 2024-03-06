@@ -10,6 +10,7 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
+                bat 'pip install allure'
                 bat 'pip install -r requirement.txt'
             }
         }
