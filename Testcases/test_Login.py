@@ -47,6 +47,7 @@ def test_log3(test_nav):
     #alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
 
     # Get the text of the alert
+
     #alert_text = alert.text
 
     # Assert the alert text
