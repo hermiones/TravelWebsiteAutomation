@@ -23,7 +23,7 @@ pipeline {
         
         stage('Generate Reports') {
             steps {
-                bat 'start report.html'
+                archiveArtifacts artifacts: 'report.html', fingerprint: true
             }
         }
     }
