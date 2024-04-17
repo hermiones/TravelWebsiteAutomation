@@ -1,6 +1,9 @@
+import os
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 # driver
 driver = webdriver.Chrome()
@@ -10,7 +13,6 @@ driver = webdriver.Chrome()
 @pytest.fixture
 def test_nav():
     driver.get('https://blazedemo.com/')
-    driver.maximize_window()
 
 
 # user data for Register
@@ -28,6 +30,15 @@ def register_user(user_data):
     for field_name, field_value in user_data.items():
         driver.find_element(By.ID, field_name).send_keys(field_value)
 
-#Path to save the screenshots
-Path_Screenshot = "C:\\Users\\s_mohanty\\PycharmProjects\\TravelWebsiteAutomation\\TravelWebsiteAutomation\\Testcases\\Screenshots\\"
+# To create a requirement.txt you need to typ the command"pip freeze >requirement.txt"
 
+#Path for saving screenshots
+Path_Screenshot = r"C:\Users\s_mohanty\PycharmProjects\TravelWebsiteAutomation\TravelWebsiteAutomation\Testcases\Screenshots\\"
+
+#This function will save screenshot and if exists it will remove the older file, as a parameter we can pass the filename
+def save_ss(filename):
+    filepath = os.path.join(Path_Screenshot, filename)
+
+    if os.path.exists(filepath):
+        os.remove(filepath)
+    driver.save_screenshot(filepath)
