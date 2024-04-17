@@ -10,6 +10,7 @@ driver = webdriver.Chrome()
 @pytest.fixture
 def test_nav():
     driver.get('https://blazedemo.com/')
+    driver.maximize_window()
 
 
 # user data for Register

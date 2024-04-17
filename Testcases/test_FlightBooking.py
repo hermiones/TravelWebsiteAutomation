@@ -1,14 +1,9 @@
-from selenium.webdriver.support.select import Select
-
-from conftest import Path_Screenshot
 from conftest import *
-
-
-
+import os
+from selenium.webdriver.support.select import Select
 
 #select a flight from Boston to Paris
 def test_FB1(test_nav):
-    driver.maximize_window()
     dropdown1 = Select(driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/select[1]"))
     dropdown1.select_by_visible_text("Boston")
     dropdown2 = Select(driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/select[2]"))
@@ -30,8 +25,29 @@ def test_FB4():
     driver.find_element(By.ID,"city").send_keys("ABC")
 
     driver.find_element(By.XPATH,"/html[1]/body[1]/div[2]/form[1]/div[11]/div[1]/input[1]").click()
+
 #Taking screenshot of the final booking
 def test_FB5():
-    driver.save_screenshot(Path_Screenshot+"ticket.png")
+    save_ss("ticket.png")
 
 
+#Validate destination of the week and save a screenshot
+def test_FB6(test_nav):
+    driver.find_element(By.XPATH,"//a[normalize-space()='destination of the week! The Beach!']").click()
+    assert "Destination of the week: Hawaii !" in driver.page_source
+    save_ss("DOW.png")
+
+#after choosing a selected airline if that airline is appearing or not
+
+def test_FB7(test_nav):
+    dropdown1 = Select(driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/select[1]"))
+    dropdown1.select_by_index(4)
+    dropdown2 = Select(driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/select[2]"))
+    dropdown2.select_by_index(5)
+    driver.find_element(By.XPATH,"/html[1]/body[1]/div[3]/form[1]/div[1]/input[1]").click()
+
+    airlines = driver.find_element(By.XPATH, "//td[normalize-space()='Lufthansa']").text
+    driver.find_element(By.xpath,"//tbody/tr[5]/td[1]/input[1]").click()
+    assert airlines in driver.page_source
+
+    
