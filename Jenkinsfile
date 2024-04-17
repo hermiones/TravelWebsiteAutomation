@@ -10,20 +10,19 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                bat 'pip install allure-pytest'
                 bat 'pip install -r requirement.txt'
             }
         }
         
         stage('Run Tests') {
             steps {
-                bat 'pytest -q --alluredir=./allure-results'
+                bat 'pytest --html=report.html'
             }
         }
         
-        stage('Generate Allure Reports') {
+        stage('Generate Reports') {
             steps {
-                bat 'allure generate ./allure-results --clean'
+                archiveArtifacts artifacts: 'report.html', fingerprint: true
             }
         }
     }
@@ -35,7 +34,7 @@ pipeline {
                 body: 'Please find the test report attached.',
                 to: 'Sudiptadiya20@gmail.com',
                 attachLog: true,
-                attachmentsPattern: 'allure-report/**'
+                attachmentsPattern: 'report.html'
             )
         }
     }
